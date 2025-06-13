@@ -10,4 +10,4 @@ fi
 export PYTHONPATH="$PYTHONPATH:$(pwd)/src"
 
 # Start the backend server
-uvicorn agent.app:app --reload --host 0.0.0.0 --port 8000
+uvicorn agent.app:app --host 0.0.0.0 --port "${PORT:-8080}"
