@@ -6,6 +6,7 @@ from langchain_core.messages import AIMessage
 from langgraph.types import Send
 from langgraph.graph import StateGraph
 from langgraph.graph import START, END
+from langgraph.checkpoint.memory import MemorySaver
 from langchain_core.runnables import RunnableConfig
 from google.genai import Client
 
@@ -290,4 +291,4 @@ builder.add_conditional_edges(
 # Finalize the answer
 builder.add_edge("finalize_answer", END)
 
-graph = builder.compile(name="pro-search-agent")
+graph = builder.compile(checkpointer=MemorySaver(), name="pro-search-agent")
