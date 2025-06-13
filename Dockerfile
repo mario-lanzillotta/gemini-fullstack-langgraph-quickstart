@@ -60,4 +60,5 @@ RUN uv pip uninstall --system pip setuptools wheel && \
     find /usr/local/bin -name "pip*" -delete
 # -- End of pip removal --
 
+ENV DATABASE_URI="sqlite:///:memory:"
 WORKDIR /deps/backend
